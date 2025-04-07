@@ -27,14 +27,16 @@ Pandas
 (Optional) Scikit-learn – for advanced matching logic
 
 📁 Project Structure
-
+graphql
+Copy
+Edit
 shl_recommender/
-├── app.py               # Streamlit Web App
-├── sample_input.py      # Command-Line Interface (CLI)
-├── recommender.py       # Core recommendation logic
-├── assessments.csv      # Sample SHL product catalog
-├── requirements.txt     # Dependencies
-└── README.md            # Documentation
+├── app.py                  # Streamlit Web App
+├── sample_input.py         # Command-Line Interface (CLI)
+├── recommender.py          # Core recommendation logic
+├── assessments.csv         # Sample SHL product catalog
+├── requirements.txt        # Dependencies
+└── README.md               # Documentation
 📊 Sample Product Catalog (assessments.csv)
 Assessment_ID	Assessment_Name	Job_Role	Skill_Level	Tags
 A101	Cognitive Ability Test	Analyst	Entry	cognitive, logic
@@ -48,11 +50,15 @@ Matching assessments are filtered using tags.
 Recommended assessments are displayed.
 
 ▶️ How to Run
-🔸 CLI Mode
+CLI Mode:
+
 bash
+
 python sample_input.py
-🔹 Streamlit Web App
+Streamlit Web App:
+
 bash
+
 python -m streamlit run app.py
 Then open http://localhost:8501 in your browser.
 
@@ -60,16 +66,19 @@ Then open http://localhost:8501 in your browser.
 Clone the repository:
 
 bash
+
 git clone https://github.com/Divyanshutiwari102/shl_recommender.git
 cd shl_recommender
 (Optional) Create and activate a virtual environment:
 
 bash
+
 python -m venv venv
 venv\Scripts\activate  # On Windows
 Install dependencies:
 
 bash
+
 pip install -r requirements.txt
 🔧 Future Improvements
 Use semantic similarity with word embeddings (e.g., spaCy, BERT)
@@ -81,11 +90,4 @@ Add advanced filters (industry, experience, region)
 📬 Contact
 For questions, please contact:
 Divyanshu Tiwari
-Email: divyanshutiwari337@gmail.com
-
-
-
-
-
-
-
+Email: divyanshu.tiwari337@gmail.com
