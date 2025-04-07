@@ -1,5 +1,5 @@
 import streamlit as st
-import requests  # We'll use requests to call the API
+import requests
 
 st.title("SHL Assessment Recommender")
 
