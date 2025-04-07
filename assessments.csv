@@ -1,0 +1,6 @@
+Assessment_ID,Assessment_Name,Tags,Target_Job_Roles,Skill_Level
+A101,Cognitive Ability Test,"cognitive, logic","analyst, engineer","entry"
+A102,Leadership Style Survey,"leadership, behavior","manager, lead","mid, senior"
+A103,Sales Aptitude Test,"sales, communication","sales executive","entry, mid"
+A104,Data Interpretation Test,"data, analytical","analyst, data scientist","entry, mid"
+A105,Verbal Communication Test,"communication, language","support, hr","entry, mid"
