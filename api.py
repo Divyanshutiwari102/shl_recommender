@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request
 from recommender import SHLRecommender
 import pandas as pd
+import os
 
 app = Flask(__name__)
 
@@ -13,7 +14,7 @@ def recommend():
     # Validate parameters
     if not job_role or not skill_level:
         return jsonify({"error": "Please provide both job_role and skill_level"}), 400
-    
+
     # Initialize recommender with the dataset
     rec = SHLRecommender("assessments.csv")
     results = rec.recommend(job_role, skill_level)
@@ -21,14 +22,7 @@ def recommend():
     # Return results as JSON
     return jsonify(results.to_dict(orient='records'))
 
+# ✅ This will work both locally and on Render
 if __name__ == '__main__':
-    app.run(debug=True)
-import os
-
-if __name__ == '__main__
-HEAD
-    port = int(os.environ.get('PORT', 5000))  # Render will provide the PORT env variable
-
-    port = int(os.environ.get('PORT', 5000))
- 89d2af1 (Fix: Bind Flask app to 0.0.0.0 and dynamic port for Render)
-    app.run(host='0.0.0.0', port=port)
+    port = int(os.environ.get('PORT', 5000))  # Use Render's dynamic port if available
+    app.run(host='0.0.0.0', port=port, debug=True)
