@@ -5,6 +5,12 @@ import os
 
 app = Flask(__name__)
 
+# Homepage route to prevent 404
+@app.route("/")
+def home():
+    return "SHL Recommender is running!"
+
+# Recommendation API route
 @app.route('/recommend', methods=['GET'])
 def recommend():
     # Get parameters from the query string
@@ -22,7 +28,7 @@ def recommend():
     # Return results as JSON
     return jsonify(results.to_dict(orient='records'))
 
-# ✅ This will work both locally and on Render
+# ✅ Works on both local and Render
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))  # Use Render's dynamic port if available
+    port = int(os.environ.get('PORT', 5000))  # Render will set PORT env variable
     app.run(host='0.0.0.0', port=port, debug=True)
