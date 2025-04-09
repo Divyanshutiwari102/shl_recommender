@@ -1,16 +1,14 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 from recommender import SHLRecommender
 import pandas as pd
 import os
 
 app = Flask(__name__)
 
-# Home route
-@app.route("/")
+@app.route('/')
 def home():
-    return "SHL Recommender is running!"
+    return render_template("index.html")
 
-# Recommend route
 @app.route('/recommend', methods=['GET'])
 def recommend():
     job_role = request.args.get('job_role', default=None, type=str)
@@ -24,7 +22,6 @@ def recommend():
 
     return jsonify(results.to_dict(orient='records'))
 
-# Run the app
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))  # Use Render's dynamic port if set
+    port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port, debug=True)

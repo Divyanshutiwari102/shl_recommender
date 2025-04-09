@@ -1,0 +1,37 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SHL Recommender</title>
+</head>
+<body>
+    <h2>SHL Assessment Recommender</h2>
+    <form id="recommenderForm">
+        <label for="job_role">Job Role:</label>
+        <input type="text" id="job_role" name="job_role" required><br><br>
+
+        <label for="skill_level">Skill Level:</label>
+        <input type="text" id="skill_level" name="skill_level" required><br><br>
+
+        <button type="submit">Get Recommendations</button>
+    </form>
+
+    <h3>Recommended Assessments:</h3>
+    <pre id="result"></pre>
+
+    <script>
+        document.getElementById("recommenderForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+            const job_role = document.getElementById("job_role").value;
+            const skill_level = document.getElementById("skill_level").value;
+
+            fetch(`/recommend?job_role=${job_role}&skill_level=${skill_level}`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("result").textContent = JSON.stringify(data, null, 2);
+                });
+        });
+    </script>
+</body>
+</html>
