@@ -25,6 +25,10 @@ if __name__ == '__main__':
     app.run(debug=True)
 import os
 
-if __name__ == '__main__':
+if __name__ == '__main__
+HEAD
     port = int(os.environ.get('PORT', 5000))  # Render will provide the PORT env variable
+
+    port = int(os.environ.get('PORT', 5000))
+ 89d2af1 (Fix: Bind Flask app to 0.0.0.0 and dynamic port for Render)
     app.run(host='0.0.0.0', port=port)
